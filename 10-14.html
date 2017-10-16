@@ -58,18 +58,20 @@ n being the length of the string array, if n = 0 or k > n or k <= 0 return "".
 	 */
 	
 	function longestConsec(strarr, k) {
-
-var str = strarr.slice(0,k).join('');
-  if(k>0 || k<=strarr.length || strarr.length == 0){
-   for(var i = 0;i< strarr.length-k+1;i++){
-       if(str.length < strarr.slice(i,k).join('').length){
-         str = strarr.slice(i,k).join('');
-       }
+var num = 0;
+var str ;
+   for(var i = 0 ; i <= strarr.length-k ;i++){
+      if(num < strarr.slice(i,k+i).join('').length){
+        str = strarr.slice(i,k+i).join('');
+        num = strarr.slice(i,k+i).join('').length;
+      }
    }
+   
+   if(strarr.length = 0 || k > strarr.length || k <= 0){
+   return "";
    }else{
-   str = "";
+    return str;
    }
-   return str;
 }
-	//未完待续....网站崩溃了...
+	//一直少了个k+i 方法没错
 </script>

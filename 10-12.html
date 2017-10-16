@@ -7,3 +7,69 @@
 	<body>
 	</body>
 </html>
+<script type="text/javascript">
+	/*
+	 * topci:Find The Parity Outlier
+	 * 
+	 * Instructions:
+	 * You are given an array (which will have a length of at least 3, but could be very large) containing integers. The array is either entirely comprised of odd integers or entirely comprised of even integers except for a single integer N. Write a method that takes the array as an argument and returns N.
+
+For example:
+
+[2, 4, 0, 100, 4, 11, 2602, 36]
+
+Should return: 11
+
+[160, 3, 1719, 19, 11, 13, -21]
+
+Should return: 160
+
+
+
+Best Function:
+function findOutlier(int){
+  var even = int.filter(a=>a%2==0);
+  var odd = int.filter(a=>a%2!==0);
+  return even.length==1? even[0] : odd[0];
+}
+	 */
+	
+	function findOutlier(integers){
+   var half = [];
+   var other = [];
+  for(var i = 0;i<integers.length;i++){
+  if(integers[i] % 2 === 0){
+      half.push(integers[i]);
+   }else{
+     other.push(integers[i]);
+    }
+  }
+   if(half.length > other.length){
+    return other[0];
+   }else{
+     return half[0];
+    }
+}
+	//数组的过滤器把奇偶过滤
+	
+	
+	
+	/*
+	 * topic:Multiples of 3 and 5
+	 * 
+	 * Instructions
+	 * If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+
+Finish the solution so that it returns the sum of all the multiples of 3 or 5 below the number passed in.
+	 */
+	
+	function solution(number){
+ var sum = 0;
+ for(var i =0;i<number;i++){
+    if(i % 3 == 0 || i % 5 == 0 ){
+      sum  += i;
+    }
+ }
+ return sum;
+}
+</script>

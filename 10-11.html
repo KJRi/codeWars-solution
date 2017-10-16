@@ -7,3 +7,68 @@
 	<body>
 	</body>
 </html>
+
+<script type="text/javascript">
+	/*
+	 * topic:Shortest Word
+	 * 
+	 * Instructions
+	 * Instructions
+Output
+x Simple, given a string of words, return the length of the shortest word(s).
+
+String will never be empty and you do not need to account for different data types.
+	 */
+	function findShort(s){
+   var arr = s.split(' ');
+   var a = String(arr[0]).length;
+   for(var i = 0;i<=arr.length;i++){
+      
+      if(a > String(arr[i]).length){
+        a = String(arr[i]).length;
+      }
+   
+}
+return a;   
+}
+	
+	//arr[i]没有length属性，记得先转化成字符串
+	//BEST!
+	function findShort(s){
+  return Math.min.apply(null, s.split(' ').map(w => w.length));
+}
+	
+	
+	/*
+	 * topic:Sum of two lowest positive integers
+	 * 
+	 * Instructions
+	 * Instructions
+Output
+Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 integers. No floats or empty arrays will be passed.
+
+For example, when an array is passed like [19,5,42,2,77], the output should be 7.
+
+[10,343445353,3453445,3453545353453] should return 3453455.
+
+Hint: Do not modify the original array.
+	 */
+	
+	function sumTwoSmallestNumbers(numbers) {  
+  var sum =[];
+  for(var i = 0 ; i<numbers.length;i++){
+      for(var j = 0; j<numbers.length;j++){
+        if(i != j){
+         sum.push(numbers[i]+numbers[j]);
+        }
+      }
+  }
+  return sum.sort(function(a,b){return a-b})[0];
+};
+
+//BEST
+function sumTwoSmallestNumbers(numbers){  
+  numbers = numbers.sort(function(a, b){return a - b; });
+  return numbers[0] + numbers[1];
+};//想复杂了
+</script>
